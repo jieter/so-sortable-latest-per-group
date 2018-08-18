@@ -5,11 +5,11 @@ from .models import Product
 
 class ProductTable(tables.Table):
     brand = tables.Column(verbose_name='Brand')
-    currentRank = tables.Column()
+    # currentRank = tables.Column()
 
-    price = tables.Column(accessor=tables.A('current_state.0.price'))
-    num_sellers = tables.Column(accessor=tables.A('current_state.0.num_sellers'))
-    num_sales = tables.Column(accessor=tables.A('current_state.0.num_sales'))
+    price = tables.Column()
+    num_sellers = tables.Column()
+    num_sales = tables.Column()
 
     class Meta:
         model = Product

@@ -1,6 +1,5 @@
 from django.db import models
 
-
 CATEGORY_CHOICES = (
     ('bikes', 'Bikes'),
     ('skateboards', 'Skateboards')
@@ -23,18 +22,6 @@ class Product(models.Model):
 
     def __str__(self):  # use __str__ for python 3.x
         return self.name
-
-    def currentState(self):
-        currentDetailState = ProductDetailsState.objects.filter(
-            product=self
-        ).latest('created_at')
-
-        # return current details as a dictionary
-        return {
-            price: currentDetailState.price,
-            num_sellers: currentDetailState.num_sellers,
-            num_sales: currentDetailState.num_sales
-        }
 
 
 class ProductDetailsState(models.Model):
